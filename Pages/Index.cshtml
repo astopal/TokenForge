@@ -1,0 +1,40 @@
+﻿@page
+@model TemplateWebApp.Pages.IndexModel
+@{
+    ViewData["Title"] = "Template Builder";
+}
+
+<link rel="stylesheet" href="~/css/site.css" />
+<script defer src="~/js/site.js"></script>
+
+<div class="wrap">
+    <h1>TokenForge</h1>
+
+    <form method="post" class="grid">
+        <input type="hidden" id="tokensJson" name="TokensJson" value='@Model.TokensJson' />
+        <textarea id="templateHidden" name="Template" hidden>@Model.Template</textarea>
+
+        <div class="card">
+            <div class="row">
+                <h2>Tokens</h2>
+                <button type="button" class="btn" id="addTokenBtn">+ Add token</button>
+            </div>
+
+            <div id="tokenList" class="token-list"></div>
+
+            <div class="tokens" id="tokenChips"></div>
+        </div>
+
+        <div class="card" id="templateCard">
+            <h2>Template</h2>
+            <div id="templateEditor" class="editor" contenteditable="true"></div>
+            <button type="submit">Generate output</button>
+        </div>
+
+        <div class="card">
+            <h2>Output</h2>
+            <textarea id="outputArea" rows="12" readonly>@Model.Output</textarea>
+            <button type="button" onclick="copyOutput()">Copy</button>
+        </div>
+    </form>
+</div>

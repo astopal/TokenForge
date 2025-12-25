@@ -1,0 +1,318 @@
+:root {
+    --bg: #0b0d10;
+    --card: rgba(12, 14, 18, 0.68);
+    --card-border: rgba(255, 255, 255, 0.12);
+    --solid: #0f1217;
+    --solid-2: #0c0f14;
+    --solid-border: rgba(255, 255, 255, 0.14);
+    --text: rgba(255, 255, 255, 0.92);
+    --muted: rgba(255, 255, 255, 0.68);
+    --accent: #55ff77;
+    --accent-soft: rgba(85, 255, 119, 0.18);
+    --danger: #ff5c5c;
+    --shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+    --radius: 16px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color: var(--text);
+    background: linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.7)), url("/img/background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Layout */
+
+.wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 28px 20px 40px;
+}
+
+h1 {
+    margin: 0 0 18px;
+    font-size: 40px;
+    letter-spacing: -0.02em;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: auto;
+    gap: 16px;
+    align-items: start;
+}
+
+/* Cards */
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 16px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+    .card h2 {
+        margin: 0 0 12px;
+        font-size: 20px;
+    }
+
+/* GRID POSITIONING (CSS only) */
+
+/* Tokens */
+.grid > .card:nth-of-type(1) {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    max-height: calc(100vh - 140px);
+    overflow-y: auto;
+    align-self: start;
+}
+
+/* Template */
+.grid > .card:nth-of-type(2) {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: start;
+}
+
+/* Output */
+.grid > .card:nth-of-type(3) {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: start;
+}
+
+/* Scrollbar (tokens) */
+.grid > .card:nth-of-type(1)::-webkit-scrollbar {
+    width: 10px;
+}
+
+.grid > .card:nth-of-type(1)::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.18);
+}
+
+/* Utility */
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.hint {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 10px;
+}
+
+/* Inputs (SOLID) */
+
+label {
+    display: block;
+    font-weight: 600;
+    margin: 12px 0 6px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid var(--solid-border);
+    background: var(--solid);
+    color: var(--text);
+    font: inherit;
+    outline: none;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.25);
+}
+
+textarea {
+    resize: vertical;
+}
+
+    input::placeholder,
+    textarea::placeholder {
+        color: rgba(255, 255, 255, 0.45);
+    }
+
+    input:focus,
+    textarea:focus {
+        border-color: rgba(85, 255, 119, 0.55);
+        box-shadow: 0 0 0 4px var(--accent-soft);
+    }
+
+/* Buttons */
+
+button {
+    font: inherit;
+}
+
+.btn,
+.card button {
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(18, 22, 28, 0.88);
+    color: var(--text);
+    cursor: pointer;
+    transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
+}
+
+    .btn:hover,
+    .card button:hover {
+        border-color: rgba(85, 255, 119, 0.45);
+        background: rgba(20, 25, 32, 0.92);
+        transform: translateY(-1px);
+    }
+
+    .btn:active,
+    .card button:active {
+        transform: translateY(0);
+    }
+
+    .btn.danger {
+        border-color: rgba(255, 92, 92, 0.45);
+    }
+
+        .btn.danger:hover {
+            border-color: rgba(255, 92, 92, 0.7);
+        }
+
+/* Token list */
+
+.token-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.token-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 10px;
+    align-items: end;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 12px;
+    background: rgba(10, 12, 16, 0.45);
+}
+
+.token-col label {
+    margin: 0 0 6px;
+    font-size: 13px;
+}
+
+.token-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Chips */
+
+.tokens {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.token {
+    padding: 7px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(14, 18, 23, 0.88);
+    cursor: grab;
+    user-select: none;
+    transition: border-color 120ms ease, transform 120ms ease;
+}
+
+    .token:hover {
+        border-color: rgba(85, 255, 119, 0.55);
+        transform: translateY(-1px);
+    }
+
+    .token:active {
+        cursor: grabbing;
+        transform: translateY(0);
+    }
+
+/* Template editor (SOLID) */
+
+.editor {
+    width: 100%;
+    min-height: 290px;
+    padding: 12px;
+    border-radius: 14px;
+    border: 1px solid var(--solid-border);
+    background: var(--solid);
+    color: var(--text);
+    outline: none;
+    white-space: pre-wrap;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.25);
+}
+
+    .editor:focus {
+        border-color: rgba(85, 255, 119, 0.55);
+        box-shadow: 0 0 0 4px var(--accent-soft);
+    }
+
+/* Bubble */
+
+.bubble {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 999px;
+    border: 1px solid rgba(85, 255, 119, 0.55);
+    background: rgba(85, 255, 119, 0.1);
+    margin: 0 2px;
+    user-select: none;
+    font-size: 12px;
+    line-height: 1.2;
+}
+
+/* Output */
+
+#outputArea {
+    background: var(--solid-2);
+}
+
+/* Responsive */
+
+@media (max-width: 980px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+        .grid > .card:nth-of-type(1),
+        .grid > .card:nth-of-type(2),
+        .grid > .card:nth-of-type(3) {
+            grid-column: auto;
+            grid-row: auto;
+            max-height: none;
+        }
+
+    h1 {
+        font-size: 34px;
+    }
+}

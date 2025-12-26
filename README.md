@@ -67,7 +67,6 @@ I am applying for a position at {{company}}.
 
 ---
 
-```md
 ## Run locally
 
 ```bash

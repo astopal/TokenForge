@@ -75,3 +75,20 @@ I am applying for a position at {{company}}.
 dotnet restore
 dotnet run
 https://localhost:5001 (example, your port may differ)
+```
+
+## Build as executable (Windows)
+
+TokenForge is a web application, but it can be published as a standalone Windows executable.
+
+To build the `.exe` locally:
+
+```bash
+dotnet publish -c Release -r win-x64 --self-contained true
+```
+
+The executable will be generated in:
+```bash
+bin/Release/net8.0/win-x64/publish/
+```
+Running the .exe will start a local web server.

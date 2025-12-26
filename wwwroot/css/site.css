@@ -136,7 +136,7 @@ h1 {
     margin-top: 10px;
 }
 
-/* Inputs*/
+/* Inputs */
 
 label {
     display: block;
@@ -270,7 +270,7 @@ button {
         transform: translateY(0);
     }
 
-/* Template editor*/
+/* Template editor */
 .editor {
     width: 100%;
     padding: 12px;
